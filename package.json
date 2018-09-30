@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "koa": "^2.0.0-alpha.8",
+    "koa-router": "^7.4.0",
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.3.3"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development supervisor bin/index",
+    "start": "pm2 start ./config/pm2.json"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
+  }
+}
