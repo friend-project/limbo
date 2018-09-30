@@ -1,7 +1,10 @@
 const getUserInfo = (ctx, next) => {
-  const query = ctx.query
-  ctx.logger.error(query)
-  ctx.body = 'Hello World'
+	try {
+		const query = ctx.query
+	  ctx.body = 'Hello World'
+	} catch (err) {
+		ctx.logger.error(err)
+	}
 }
 
 module.exports = {
