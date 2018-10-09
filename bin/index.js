@@ -3,10 +3,11 @@ const path = require('path')
 const serve = require('koa-static')
 const onerror = require('koa-onerror')
 
-const logger = require('../lib/logger')
+const logger = require('../library/logger')
 const router = require('../server/route')
 
 const app = new Koa()
+const port = process.env.PORT || 9527
 
 app.context.logger = logger
 
@@ -21,4 +22,7 @@ app.on('error', (err, ctx) => {
   ctx.logger.error(err)
 })
 
-app.listen(9527)
+app.listen(port, () => {
+  console.log('Server run on: http://0.0.0.0:%d', port)
+})
+

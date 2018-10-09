@@ -25,12 +25,12 @@ const SAVE_DAYS = '49d'
 
 // 日志级别
 const levels = {
-  error: 0,
-  warn: 1,
-  info: 2,
-  verbose: 3,
-  debug: 4,
-  silly: 5,
+  error: 0,       // 错误
+  warn: 1,        // 提示
+  info: 2,        // 信息
+  verbose: 3,     // 长的
+  debug: 4,       // 调试
+  silly: 5,       // 普通
 }
 
 // 格式化输出内容
