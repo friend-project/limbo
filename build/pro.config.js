@@ -31,6 +31,8 @@ module.exports = {
           {
             loader: 'css-loader?importLoaders=1',
             options: {
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]',
               minimize: true
             }
           }, {
@@ -80,7 +82,8 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[hash:5].css",
+      // filename: "[name].[hash:5].css",
+      filename: "[name].css",
       chunkFilename: "[id].css"
     }),
     new webpack.DllReferencePlugin({

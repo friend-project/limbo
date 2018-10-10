@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   Route,
-  Link
+  Switch,
+  Redirect
 } from 'react-router-dom'
 
-import Count from './components/count'
-import Async from './components/async'
+import Main from './component/main'
+import NotFound from './container/NotFound'
 
 const App = () => (
-  <div>
-    <ul>
-      <li><Link to="/count">Count</Link></li>
-      <li><Link to="/async">Async</Link></li>
-    </ul>
-    <Route path="/count" exact component={Count} />
-    <Route path="/async" exact component={Async} />
-  </div>
+  <Switch>
+    <Route exact path="/">
+      <Redirect to="main" push />
+    </Route>
+    <Route path="/main" component={Main} />
+    <Route component={NotFound} />
+  </Switch>
 )
 
 export default App

@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 
 import { increase, decrease } from './action'
 
+import s from './count.scss'
+
 function Count({ count, increase, decrease }) {
   return (
     <div>
-      <h2>Some state changes 2:</h2>
+      <h2 className={s.count}>Some state changes 2:</h2>
       <div>{count}</div>
       <button onClick={() => increase(1)}>Increase</button>
       <button onClick={() => decrease(1)}>Decrease</button>

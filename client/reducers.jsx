@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import count from './components/count/reducer';
-import async from './components/async/reducer';
+import count from './component/count/reducer'
+import async from './component/async/reducer'
 
 const rootReducer = combineReducers({
   count,
   async,
-});
+})
 
-export default rootReducer;
+export default rootReducer
 

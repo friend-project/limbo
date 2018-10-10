@@ -31,6 +31,8 @@ module.exports = {
           {
             loader: 'css-loader?importLoaders=1',
             options: {
+              modules: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]',
               minimize: true
             }
           }, {
@@ -79,13 +81,13 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.less', 'jpg', 'jpeg', 'png', 'gif', 'svg']
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./reactFest.json')
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
   ]
 }

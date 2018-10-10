@@ -11,8 +11,10 @@ import App from './../client/app'
 
 const temp = (content, initialState) => {
   let scripts = '<script src="/script/app.js"></script>'
+  let styles = '<link rel="stylesheet" href="/styles/app.css">'
   if (process.env.NODE_ENV === 'development') {
-    scripts = '<script src="app.js"></script>'
+    scripts = '<script src="/app.js"></script>'
+    styles = '<link rel="stylesheet" href="/app.css">'
   }
   return (
     `
@@ -24,7 +26,7 @@ const temp = (content, initialState) => {
           <meta content="yes" name="apple-touch-fullscreen">
           <meta name="format-detection" content="telephone=no">
           <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-          <link rel="stylesheet" href="/styles/app.css">
+          ${styles}
         </head>
         <body>
           <div id="app">${content}</div>
@@ -55,28 +57,7 @@ const notFound = status => (
 </html>`
 )
 
-// 声明路由
-const routes = [
-  '/',
-  '/about',
-  '/topics',
-  '/count',
-  '/topics/*',
-  '/async',
-]
-
 module.exports = async (ctx, next) => {
-  const match = routes.reduce(
-    (acc, route) =>
-    matchPath(ctx.url, route, { exact: true }) || acc, null
-  );
-
-  if (!match.isExact) {
-    ctx.status = 404;
-    ctx.body = notFound(404);
-    return;
-  }
-
   const middleware = [thunk]
   const store = createStore(
     rootReducer,

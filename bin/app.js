@@ -33,7 +33,7 @@ app.use(async (ctx, next) => {
   // 过滤开发过程中 js 文件
   // 有静态真事文件走静态文件设置，没有走路由
   // 开发过程中为缓存文件，没有真实文件
-  if (ctx.path !== '/app.js') {
+  if (!ctx.path.match(/^\/app\./)) {
     return await render(ctx, next)
   }
 
