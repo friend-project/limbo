@@ -1,12 +1,19 @@
 {
   "apps": {
-    "name": "spring",                                  // 项目名
-    "script": "./bin/entry.js",                        // 执行文件
-    "cwd": "./",                                       // 根目录
+    "name": "limbo",                                   // 应用名称
+    "script": "./bin/entry.js",                        // 实际启动脚本
+    "cwd": "./",                                       // 当前工作路径
     "args": "",                                        // 传递给脚本的参数
     "interpreter": "",                                 // 指定的脚本解释器
     "interpreter_args": "",                            // 传递给解释器的参数
-    "watch": true,                                     // 是否监听文件变动然后重启
+    "watch": [
+        "asset",
+        "bin",
+        "client",
+        "config",
+        "library",
+        "server"
+    ],                                                 // 是否监听文件变动然后重启, true or []
     "ignore_watch": [                                  // 不用监听的文件
       "node_modules",
       "log"
@@ -22,6 +29,9 @@
     "max_restarts": 30,                                // 最大异常重启次数，即小于 min_uptime 运行时间重启次数
     "autorestart": true,                               // 默认为 true, 发生异常的情况下自动重启
     "cron_restart": "",                                // crontab 时间格式重启应用，目前只支持cluster模式
-    "restart_delay": 60
+    "restart_delay": 60,
+    "env": {
+      "NODE_ENV": "production"  // 环境参数，当前指定为生产环境
+    }
   }
 }

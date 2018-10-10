@@ -19,8 +19,11 @@
   "scripts": {
     "clean": "rimraf ./asset",
     "dev": "npm-run-all clean build:react start:dev",
-    "start": "pm2 start ./config/pm2.json",
+    "prod": "npm-run-all build start:prod",
     "start:dev": "cross-env NODE_ENV=development supervisor bin/entry",
+    "start:prod": "pm2 start ./config/pm2.json",
+    "stop": "pm2 stop limbo",
+    "restart": "pm2 restart limbo",
     "build": "npm-run-all clean build:react build:pro",
     "build:react": "webpack --config build/react.config.js",
     "build:pro": "webpack --config build/pro.config.js",
