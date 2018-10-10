@@ -9,7 +9,7 @@ module.exports = {
     app: ['./client/client.jsx']
   },
   output: {
-    path: path.resolve(__dirname, '../assets'),
+    path: path.resolve(__dirname, '../asset/script'),
     filename: '[name].js',
     publicPath: '/',
   },
@@ -21,7 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'stage-0', 'react']
+            presets: ['@babel/preset-env', "@babel/preset-react"]
           }
         }
       }, {
@@ -79,14 +79,13 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.less', 'jpg', 'jpeg', 'png', 'gif', 'svg']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./reactFest.json')
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ]
 }

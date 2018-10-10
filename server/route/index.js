@@ -42,5 +42,5 @@ const addControllers = function (router, dir) {
 module.exports = function (dir) {
   var controllersDir = dir || 'controller'
   addControllers(router, controllersDir)
-  return router.routes();
+  return router.routes()
 }

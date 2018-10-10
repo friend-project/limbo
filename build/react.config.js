@@ -18,7 +18,7 @@ module.exports = {
     react: vendors
   },
   output: {
-    path: path.resolve(__dirname, '../assets/library'),
+    path: path.resolve(__dirname, '../asset/library'),
     filename: '[name].js',
     library: '[name]',
   },

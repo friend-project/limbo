@@ -9,7 +9,7 @@ module.exports = {
     app: ['./client/client.jsx']
   },
   output: {
-    path: path.resolve(__dirname, '../assets'),
+    path: path.resolve(__dirname, '../asset/script'),
     filename: '[name].js',
     publicPath: '/',
   },
@@ -21,7 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'stage-0', 'react']
+            presets: ['@babel/preset-env', "@babel/preset-react"]
           }
         }
       }, {

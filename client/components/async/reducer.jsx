@@ -2,7 +2,7 @@ import {
   ASYNC_REQUEST,
   ASYNC_RECEIVE,
   ASYNC_FAILURE,
-} from './constant';
+} from './constant'
 
 export default (state = {
   isFetching: false,
@@ -15,13 +15,13 @@ export default (state = {
         ...state,
         error: null,
         isFetching: true,
-      };
+      }
     case ASYNC_RECEIVE:
       return {
         ...state,
         isFetching: false,
         response: action.response,
-      };
+      }
     case ASYNC_FAILURE:
       return {
         ...state,
@@ -29,6 +29,7 @@ export default (state = {
         error: action.error
       }
     default:
-      return state;
+      return state
   }
-};
+}
+

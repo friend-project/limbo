@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { post } from './action';
+import { post } from './action'
 
 class Async extends Component {
   componentWillMount() {
-    const { dispatch } = this.props;
-    dispatch(post('2'));
+    const { dispatch } = this.props
+    dispatch(post('2'))
   }
   shouldComponentUpdate(nextProps) {
-    // return this.props.isFetching !== nextProps.isFetching;
-    return this.props.response.id !== nextProps.response.id;
+    // return this.props.isFetching !== nextProps.isFetching
+    return this.props.response.id !== nextProps.response.id
   }
   _testA() {
-    const { dispatch } = this.props;
-    dispatch(post('1'));
+    const { dispatch } = this.props
+    dispatch(post('1'))
   }
   _testB() {
-    const { dispatch } = this.props;
-    dispatch(post('2'));
+    const { dispatch } = this.props
+    dispatch(post('2'))
   }
   _testC() {
-    const { dispatch } = this.props;
-    dispatch(post('3'));
+    const { dispatch } = this.props
+    dispatch(post('3'))
   }
   render() {
-    const { isFetching, response, error } = this.props;
+    const { isFetching, response, error } = this.props
     return (
       <div>
         <div>status: {error ? '404' : '200'}</div>
@@ -49,19 +49,19 @@ class Async extends Component {
         <button onClick={() => this._testB(this)}>test 2</button>
         <button onClick={() => this._testC(this)}>test 3</button>
       </div>
-      );
+      )
   }
 }
 Async.propTypes = {
   dispatch: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
-};
+}
 
 const mapStateToProps = (state) => {
-  const { isFetching, response, error } = state.async;
+  const { isFetching, response, error } = state.async
 
-  return { isFetching, response, error };
-};
+  return { isFetching, response, error }
+}
 
-export default connect(mapStateToProps)(Async);
+export default connect(mapStateToProps)(Async)
 

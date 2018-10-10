@@ -1,7 +1,7 @@
 {
   "apps": {
     "name": "spring",                                  // 项目名
-    "script": "./bin",                                 // 执行文件
+    "script": "./bin/entry.js",                        // 执行文件
     "cwd": "./",                                       // 根目录
     "args": "",                                        // 传递给脚本的参数
     "interpreter": "",                                 // 指定的脚本解释器
