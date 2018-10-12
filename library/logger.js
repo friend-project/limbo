@@ -49,10 +49,11 @@ const formatter = combine(
 )
 
 let logger
-if (process.env.NODE_ENV === 'development') {
+if (
+  process.env.NODE_ENV === 'development' ||
+  process.env.NODE_ENV === 'front'
+) {
   logger = createLogger({
-    levels: levels,
-    format: formatter,
     transports: [
       // 控制台输出
       new transports.Console({
@@ -61,7 +62,7 @@ if (process.env.NODE_ENV === 'development') {
           colorize(),
           printf(info => {
             if (info.level == 'error') {
-              return `${info.level} ${info.timestamp} ${info.message.toString()}`
+              return `${info.level} ${info.timestamp} ${info.message}`
             } else {
               return `${info.level} ${info.timestamp} ${JSON.stringify(info.message)}`
             }

@@ -13,8 +13,9 @@ const render = require('../library/render')
 
 const app = new Koa()
 const port = process.env.PORT || appConfig.port || 9527
+const isDev = process.env.NODE_ENV === 'front' || process.env.NODE_ENV === 'development' ? true : false
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'front') {
   webpackMiddleware({
     compiler: Webpack(webpackConfig),
     config: webpackConfig
@@ -40,13 +41,11 @@ app.use(async (ctx, next) => {
   await next()
 })
 
-app.on('error', (err, ctx) => {
-  ctx.logger.error(err)
-})
+onerror(app)
 
-if (process.env.NODE_ENV === 'development') {
-  onerror(app)
-}
+app.on('error', (err, ctx) => {
+  isDev ? console.log(err) : ctx.logger.error(err)
+})
 
 app.listen(port, () => {
   console.log('Server run on: http://0.0.0.0:%d', port)

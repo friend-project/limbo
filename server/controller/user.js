@@ -1,4 +1,4 @@
-const log = (ctx, next) => {
+const getUserInfo = (ctx, next) => {
   try {
     const query = ctx.query
     ctx.body = 'Hello World'
@@ -8,6 +8,6 @@ const log = (ctx, next) => {
 }
 
 module.exports = {
-  'GET /log': log,
+  'GET /user': getUserInfo,
 }
 
