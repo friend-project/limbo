@@ -22,7 +22,16 @@ require('css-modules-require-hook')({
         }).css,
     camelCase: true,
     generateScopedName: '[name]_[local]_[hash:base64:5]'
-});
+})
+
+// server less
+require('css-modules-require-hook')({
+    extensions: ['.less'],
+    processorOpts: {
+      parser: require('postcss-less').parse,
+    },
+    generateScopedName: '[name]_[local]_[hash:base64:5]'
+})
 
 
 require('./app')

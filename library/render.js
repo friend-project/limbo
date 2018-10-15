@@ -12,7 +12,7 @@ import App from './../client/app'
 const temp = (content, initialState) => {
   let scripts = '<script src="/script/app.js"></script>'
   let styles = '<link rel="stylesheet" href="/styles/app.css">'
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'front') {
     scripts = '<script src="/app.js"></script>'
     styles = '<link rel="stylesheet" href="/app.css">'
   }
