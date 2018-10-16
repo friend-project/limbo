@@ -1,0 +1,22 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules",
+    "client",
+    "assets"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "events": {
+  },
+  "watch": [
+    "bin",
+    "server",
+    "library"
+  ],
+  "ext": "js jsx json css scss",
+  "legacy-watch": false
+}
