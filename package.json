@@ -23,7 +23,7 @@
     "dev": "npm-run-all start:dev",
     "prod": "npm-run-all build start:prod",
     "start:wds": "cross-env NODE_ENV=front nodemon --config ./config/nodemon.js bin/entry",
-    "start:dev": "cross-env NODE_ENV=development PORT=9528 nodemon ./config/nodemon.js bin/entry",
+    "start:dev": "cross-env NODE_ENV=development nodemon --config ./config/nodemon.js bin/entry",
     "start:prod": "pm2 start ./config/pm2.json",
     "stop": "pm2 stop limbo",
     "restart": "pm2 restart limbo",
